@@ -6,15 +6,7 @@ import dispatcher from '../dispatcher'
 class TodoStore extends EventEmitter {
   constructor() {
     super()
-    this.todos = [{
-      id: 1,
-      text: 'Integrate Flux',
-      completed: false
-    }, {
-      id: 2,
-      text: 'fix that shit',
-      completed: false
-    }]
+    this.todos = []
   }
   getAll() {
     return this.todos

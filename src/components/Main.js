@@ -69,9 +69,11 @@ class AppComponent extends React.Component {
             <h1 className="todo-title">
               Todos
           </h1>
-            <ul>
-              {TodoComponents}
-            </ul>
+
+          {
+            this.state.todos.length  ?
+                    <ul>{TodoComponents} </ul>   : <p className="text-center">You have nothing to do!</p>
+          }
           </div>
         </div>
 
