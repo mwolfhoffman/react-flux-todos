@@ -15,12 +15,7 @@
     align-content: center;
 }
 
-body{
-    background-image: url('../images/react.png');
-     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-}
+
 
 .todo-title{
     text-align: center;

@@ -1,27 +1,39 @@
-import React from 'react'
+import React from 'react';
+import FontAwesome from 'react-fontawesome';
 
-import * as TodoActions from '../actions/TodoActions'
-import TodoStore from '../stores/todoStore'
+import * as TodoActions from '../actions/TodoActions';
+import TodoStore from '../stores/todoStore';
 
 export default class Todo extends React.Component {
     constructor() {
-        super()
-        // this.deleteTodo=this.deleteTodo().bind(this)
+        super();
     }
-
     deleteTodo(id) {
-        console.log('in the component? ', id)
-        TodoActions.deleteTodo(id)
+        TodoActions.deleteTodo(id);
     }
     render() {
-        let that = this
         return (
-            <p 
-            id={this.props.key} 
-            text={this.props.text} 
-            onClick={()=>{this.deleteTodo(this.props.id)}}>
-            {this.props.text}
-            </p>
+            <div>
+                <div class className="col-sm-3">
+                    <FontAwesome
+                        name="check"
+                    />
+                    <FontAwesome
+                        name="pencil"
+                    />
+                    <FontAwesome
+                        name="trash"
+                    />
+                </div>
+                <div class className="col-sm-9">
+                    <p
+                        key={this.props.id}
+                        onClick={() => { this.deleteTodo(this.props.id) }}>
+                        {this.props.text}
+
+                    </p>
+                </div>
+            </div>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import uuid from 'uuid'
 
 import * as TodoActions from '../actions/TodoActions'
 import TodoStore from '../stores/todoStore'
@@ -8,9 +9,12 @@ export default class Form extends React.Component {
         super(props)
         this.state={}
     }
-    createTodo(todo){
-        console.log('yup in the component workin')
-        // debugger 
+    createTodo(text){
+        let todo={
+            completed: false,
+            id: uuid(),
+            text
+        }
         TodoActions.createTodo(todo)
     }
     render() {
@@ -18,11 +22,14 @@ export default class Form extends React.Component {
         return (
             <center>  
             <form
-                onSubmit={(event) => {
-                    event.preventDefault()
-                    this.createTodo(input.value)
-                    input.value = ''
-                }}>
+                onSubmit={(e) => { 
+                    e.preventDefault();
+                    var data = input.value 
+                    input.value = '';
+                    this.createTodo(data);
+                }
+                
+                }>
                 <input type="text"
                 className="form"
                     ref={node => { input = node }}
